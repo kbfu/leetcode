@@ -1,4 +1,4 @@
-// https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/23/
+// https://leetcode-cn.com/problems/rotate-array/description/
 
 package main
 
