@@ -1,30 +1,26 @@
 package main
 
+import "strings"
+
 func lengthOfLongestSubstring(s string) int {
-	m := make(map[string]int)
-	count := 0
 	max := 0
-	if len(s) > 1 {
-		for i := range s {
-			char := string(s[i])
-			_, ok := m[char]
-			if ok {
-				if count > max {
-					max = count
-					count = 1
-				}
-			} else {
-				count++
-				m[char] = i
-				if i == len(s)-1 && count > max {
-					max = count
-				}
+	start := 0
+	m := make(map[string]int)
+	for i := 0; i < len(s); i++ {
+		prev := string(s[start:i])
+		char := string(s[i])
+		if strings.Count(prev, char) > 0 {
+			if len(prev) > max {
+				max = len(prev)
+			}
+			start = m[char] + 1
+		} else {
+			if len(prev)+1 > max {
+				max = len(prev) + 1
 			}
 		}
-	} else if len(s) == 1 {
-		max = 1
+		m[char] = i
 	}
-
 	return max
 }
 
@@ -34,4 +30,7 @@ func main() {
 	println(lengthOfLongestSubstring("dvdf"))
 	println(lengthOfLongestSubstring(""))
 	println(lengthOfLongestSubstring("au"))
+	println(lengthOfLongestSubstring("abcabcbb"))
+	println(lengthOfLongestSubstring("pwwkew"))
+	println(lengthOfLongestSubstring("nfpdmpi"))
 }
