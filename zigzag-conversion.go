@@ -1,4 +1,4 @@
-// https://leetcode-cn.com/problems/zigzag-conversion/description/
+// https://leetcode-cn.com/problems/zigzag-conversion
 
 package main
 
