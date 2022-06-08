@@ -37,5 +37,4 @@ func minimizeResult(expression string) string {
 
 func main() {
 	print(minimizeResult("22+1"))
-	//print(string("123456")[0:1])
 }
